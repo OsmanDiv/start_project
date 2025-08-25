@@ -84,6 +84,7 @@ nav .data {
     display: flex;
     align-items: center;
     gap: 10px;
+    /* background: #000; */
 }
 nav .data > i {
     color:var(--main-color)
@@ -157,12 +158,14 @@ nav ul li .drobdown a:hover span{
 nav ul li:hover .drobdown{
     display: flex;
 }
+nav > label{
+    display: none;
+}
 .fa-list{
     font-size: 30px;
     cursor: pointer;
     color: #fff;
     
-    display: none !important;
 }
 
 .mopile-menu{
@@ -307,8 +310,8 @@ header input[id="open"]:checked ~ .blury{
 @media(max-width:1100px){
     
 
-    .fa-list{
-        display: block !important;
+    nav > label{
+        display: block ;
     }
     nav{
         padding: 40px 5%;
@@ -521,7 +524,7 @@ section{
     flex-direction: column;
     gap: 20px;
     margin-top: 30px;
-      height: 66vh;
+      height: 70vh;
    overflow: hidden;
  position: relative;
     
@@ -543,11 +546,7 @@ section{
     left: 0;
     transition:0.5s;
 }
- .card{
-   
-    width: 100%;
-    
-}
+
  .card img{
     border-radius: 8px;
     width: 100%;
@@ -640,14 +639,18 @@ section{
 
 }
 @media (max-width:540px){
+    .card{
+        width: 100%;
+    }
     .containr .supsection{
    
     display: grid;
     grid-template-columns: 1fr ;
+    width: 100%;
    
 }
  .containr{
-    height: 200vh;
+    height: 300vh;
  }
  .sec-titel span{
     font-size: 10px;
@@ -682,9 +685,7 @@ section{
     gap: 10px;
    
 }
-.show .container .left > img{
-/* width:calc((100% - 130px)); */
-}
+
 .show .container .left > div{
     width: 110px;
     height: 250px;
@@ -695,6 +696,7 @@ section{
      align-items: center;
      justify-content: center;
      gap: 20px;
+     cursor: pointer;
 
 }
 .show .container .left > div span{
@@ -771,7 +773,7 @@ section{
     }
 }
 
-@media (max-width:570px){
+@media (max-width:760px){
     .show .container .right .detels > div{
         display: flex;
         flex-direction: column;
@@ -781,9 +783,21 @@ section{
         width: 80px ;
         height: 80px;
     }
-
+    
 }
-
+@media (max-width:560px){
+     .show .container .left div{
+        position: relative;
+     }
+    .show .container .left{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+}
 /* end sec show */
 /* start sec rated  */
 .rated{
@@ -792,7 +806,7 @@ section{
     align-items: center;
     text-align: center;
     gap: 70px;
-    background: url(../images/tr_movies_bg.jpg) center;
+    background: url(../images/tr_movies_bg.jpg) center no-repeat;
     background-size: cover;
 
 }
@@ -936,13 +950,18 @@ section{
         grid-template-columns: 1fr   ;
     }
      .rated .containar{
-        height: 750vh;
+        height: 820vh;
      }
      .rated input:not(:first-child):checked ~ .containar{
-        height: 375vh  ;
+        height: 425vh  ;
     }
+     .rated .btns{
+        display: flex;
+        flex-direction: column;
+     }
     .rated .btns label{
-    padding: 8px 16px;
+       
+    padding: 13px 160px;
     font-size: 13px;
 
     }
@@ -1058,7 +1077,7 @@ section{
     }
 }
 @media(max-width:786px){
-    .live .containr .lift{}
+    
     .live .containr .lift .sec-titel span,
     .live .containr .lift .sec-titel b{
         font-size: 30px;
@@ -1069,8 +1088,12 @@ section{
 }
 @media(max-width:540px){
      .live .containr{
-        height: 100vh;
-     }
+         height: max-content;
+         
+        }
+        .live .containr .left{
+            text-align: center;
+        }
 }
 
 /* end secLive */
@@ -1219,10 +1242,20 @@ footer{
     height: 250px;
 }
 footer nav {
+    position: relative;
     
     opacity: 0.7;
 }
-
+/* footer .containar::after{
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    color: var(--main-color);
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+} */
 footer .search{
     height: 50px;
     width: 200px;
@@ -1239,13 +1272,21 @@ footer .search{
 footer .search input{
     position: absolute;
     left: 50px;
+    
     width: 100%;
     height: 100%;
     background-color:#12151e ;
     border: none;
     border-radius: 35px;
+    color: var(--main-color);
     
    
+}
+footer .search > i{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translatey(-50%);
 }
 footer .containar{
     display: flex;
